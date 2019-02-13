@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if real_number %}
+        <h2>real_number:[{{real_number}}] --> integer_part:[{{integer_part}}] --> decimal_part:[{{decimal_part}}]</h2>
+         <hr>
+    {% endif %}
+    <form action="/" method="post">
+       Input real number:<input type="text" name="real_number">
+        <hr>
+        {% if error %}
+            error:[{{error}}]
+            <hr>
+        {% endif %}
+        <input type="submit">
+    </form>
+    {% if tracks[0] %}
+        <hr>
+        {%for track in tracks %}
+            [{{track}}]
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

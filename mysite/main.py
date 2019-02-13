@@ -113,4 +113,4 @@ def index():
             decimal_part = str("")
 
 
-    return render_template('index.html', title='Home', real_number=real_number, integer_part=integer_part, decimal_part=decimal_part, error=error, tracks=tracks)
+    return render_template('index.html', title='p01_case_00 - branch', real_number=real_number, integer_part=integer_part, decimal_part=decimal_part, error=error, tracks=tracks)

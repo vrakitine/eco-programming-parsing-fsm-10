@@ -1,0 +1,42 @@
+{
+    "s_00":{
+        "comment":"initial state",
+        "v_10":"s_10",
+        "v_20":"s_20",
+        "v_30":"s_30",
+        "v_40":"Err_10",
+        "v_50":"Err_20"
+   },
+    "s_10":{
+        "comment":"state of sign",
+        "v_10":"Err_30",
+        "v_20":"s_20",
+        "v_30":"s_30",
+        "v_40":"Err_40",
+        "v_50":"Err_20"
+   },
+    "s_20":{
+        "comment":"state of integer part",
+        "v_10":"Err_50",
+        "v_20":"s_20",
+        "v_30":"s_30",
+        "v_40":"END",
+        "v_50":"Err_20"
+   },
+    "s_30":{
+        "comment":"state of separator",
+        "v_10":"Err_60",
+        "v_20":"s_40",
+        "v_30":"Err_70",
+        "v_40":"END",
+        "v_50":"Err_20"
+    },
+    "s_40":{
+        "comment":"state of decimal part",
+        "v_10":"Err_80",
+        "v_20":"s_40",
+        "v_30":"Err_90",
+        "v_40":"END",
+        "v_50":"Err_20"
+   }
+}

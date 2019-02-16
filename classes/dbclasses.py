@@ -8,7 +8,7 @@ class SQLighter:
     def createStateLogTable(self, table_name):
         try:
             self.c.execute("DROP TABLE IF EXISTS %s"% (table_name))
-            self.c.execute("CREATE TABLE IF NOT EXISTS `%s` (`id` int(11) NOT NULL AUTO_INCREMENT,`SL_PREVIOUS_STATE_CODE` varchar(255) NOT NULL,`SL_EVENT_CODE` varchar(255) NOT NULL, `SL_CURRENT_STATE_CODE` varchar(255) NOT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 "% (table_name))
+            self.c.execute("CREATE TABLE IF NOT EXISTS `%s` (`id` int(11) NOT NULL AUTO_INCREMENT,`SL_PREVIOUS_STATE_CODE` varchar(255) NOT NULL,`SL_SYMBOL` varchar(255) NOT NULL,`SL_EVENT_CODE` varchar(255) NOT NULL, `SL_CURRENT_STATE_CODE` varchar(255) NOT NULL,PRIMARY KEY (`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 "% (table_name))
             #self.c.execute("INSERT INTO `%s` (`SL_PREVIOUS_STATE_CODE`, `SL_EVENT_CODE`, `SL_CURRENT_STATE_CODE`) VALUES ('s_00', 'v_00', 's_00')"% (table_name))
             self.conn.commit()
         finally:

@@ -15,11 +15,11 @@ class Fsm:
     def setStateLogTable(self, sql):
         sql.createStateLogTable(self.state_log_table_name)
 
-    def getNextState(self, sql, state_current, event_code):
+    def getNextState(self, sql, state_current, event_code, symbol):
         state_next = self.state_matrix[state_current][event_code]
-        self.appendStateLogTable(sql, state_current, event_code, state_next)
+        self.appendStateLogTable(sql, state_current, event_code, state_next, symbol)
 
         return state_next
 
-    def appendStateLogTable(self, sql, state_current, event_code, state_next):
-        sql.insert("INSERT INTO `" + self.state_log_table_name + "` (`SL_PREVIOUS_STATE_CODE`, `SL_EVENT_CODE`, `SL_CURRENT_STATE_CODE`) VALUES ('" + state_current + "', '" + event_code + "', '" + state_next + "')")
+    def appendStateLogTable(self, sql, state_current, event_code, state_next, symbol):
+        sql.insert("INSERT INTO `" + self.state_log_table_name + "` (`SL_PREVIOUS_STATE_CODE`, `SL_SYMBOL`, `SL_EVENT_CODE`, `SL_CURRENT_STATE_CODE`) VALUES ('" + state_current + "', '" + symbol + "', '" + event_code + "', '" + state_next + "')")

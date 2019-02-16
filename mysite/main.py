@@ -34,23 +34,28 @@ def index():
         i = 0
         while i < len(real_number) + 1:
             event = "v_50"
+            symbol = "unknown"
 
             if i < len(real_number):
                 if real_number[i] in ["+","-"]:
                     event = "v_10"
+                    symbol = real_number[i]
 
                 if real_number[i] in ["0","1","2","3","4","5","6","7","8","9"]:
                     event = "v_20"
+                    symbol = real_number[i]
 
                 if real_number[i] in ["."]:
                     event = "v_30"
+                    symbol = real_number[i]
+
             if i == len(real_number):
                 event = "v_40"
-
+                symbol = "CR"
 
             # define new state
             sql = dbclasses.SQLighter()
-            state = fsm.getNextState(sql, current_state, event)
+            state = fsm.getNextState(sql, current_state, event, symbol)
             previous_state = current_state
             current_state = state
 
